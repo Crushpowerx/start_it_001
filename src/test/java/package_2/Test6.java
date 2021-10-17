@@ -26,9 +26,9 @@ public class Test6 {
         for (int i = 0; i < 10; i++) {
             System.out.println(arrayList.get(i));
         }
-//        for (String s : arrayList) {
-//            System.out.println(s);
-//        }
+        for (String s : arrayList) {
+            System.out.println(s);
+        }
     }
 
 }
