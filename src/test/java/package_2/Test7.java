@@ -9,7 +9,6 @@ public class Test7 {
         test2();
     }
 
-
     public static void test1() {
         Scanner console = new Scanner(System.in);
 

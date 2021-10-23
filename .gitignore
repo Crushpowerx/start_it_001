@@ -26,7 +26,6 @@ hs_err_pid*
 .idea/
 target/
 build/
-/test_task/
 *.iml
 /.DS_Store
 /allure-results/
