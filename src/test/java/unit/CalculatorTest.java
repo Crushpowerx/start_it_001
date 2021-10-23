@@ -15,4 +15,31 @@ public class CalculatorTest {
         double actualResult = calculator.getSum(a, b);
         Assertions.assertEquals(expectedResult, actualResult);
     }
+
+    @Test
+    public void checkGetSubtraction() {
+        int a = 2;
+        int b = 3;
+        int expectedResult = -1;
+        double actualResult = calculator.getSubtraction(a, b);
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void checkGetMultiple() {
+        int a = 2;
+        int b = 3;
+        int expectedResult = 6;
+        double actualResult = calculator.getMultiple(a, b);
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    public void checkGetDivision() {
+        int a = 2;
+        int b = 3;
+        double expectedResult = 0.6666666666666666;
+        double actualResult = calculator.getDivision(a, b);
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
 }
