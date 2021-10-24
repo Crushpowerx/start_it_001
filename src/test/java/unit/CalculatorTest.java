@@ -16,6 +16,15 @@ public class CalculatorTest {
         Assert.assertEquals(expectedResult, actualResult);
     }
 
+    @Test(expectedExceptions = {java.lang.AssertionError.class})
+    public void checkExceptionInGetSum() {
+        int a = 2;
+        int b = 3;
+        int expectedResult = 6;
+        double actualResult = calculator.getSum(a, b);
+        Assert.assertEquals(expectedResult, actualResult);
+    }
+
     @Test
     public void checkGetSubtraction() {
         int a = 2;
