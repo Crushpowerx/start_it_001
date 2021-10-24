@@ -3,15 +3,19 @@ package package_2;
 
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class Test8 {
 
     @Test
     public void test1() {
-//        for (int i = 0; i < 10; i++) {
-//            System.out.println("*".repeat(i));
-//        }
-//        for (int i = 9; i > 1; i--) {
-//            System.out.println("*".repeat(i));
-//        }
+        int[] arrayInt = new int[5];
+        try {
+            for (int i = 0; i < 6; i++) {
+                arrayInt[i] = i;
+            }
+        } catch (ArrayIndexOutOfBoundsException ignore) {
+        }
+        System.out.println(Arrays.toString(arrayInt));
     }
 }
