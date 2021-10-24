@@ -1,11 +1,12 @@
 package package_2;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class Test1 {
 
-    @BeforeEach
+    @BeforeMethod
     public void createNewApplication() throws Exception {
         throw new Exception("Aha!");
 //        System.out.println("Created");

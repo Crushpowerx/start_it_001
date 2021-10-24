@@ -1,6 +1,7 @@
 package package_2;
 
-import org.junit.jupiter.api.Test;
+
+import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
