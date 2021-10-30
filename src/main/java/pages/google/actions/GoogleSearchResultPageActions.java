@@ -17,7 +17,7 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
 
     @Step
     public void checkEachResultForText(String text) {
-        for (int i = 0; i < amountOfResults; i++) {
+        for (int i = 1; i <= amountOfResults; i++) {
             if ($(byXpath(resultTitle + "[" + i + "]")).getText().equals(text)) {
                 break;
             }
