@@ -1,4 +1,4 @@
-package package_1;
+package learning.package_1;
 
 public class Class1 {
     String var1 = "a";

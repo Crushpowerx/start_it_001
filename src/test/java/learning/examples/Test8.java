@@ -1,4 +1,4 @@
-package package_2;
+package learning.examples;
 
 
 import org.testng.annotations.Test;

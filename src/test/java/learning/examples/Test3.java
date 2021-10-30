@@ -1,6 +1,6 @@
-package package_2;
+package learning.examples;
 
-import package_1.Class1;
+import learning.package_1.Class1;
 
 public class Test3 extends Class1 {
 

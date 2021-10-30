@@ -1,6 +1,6 @@
-package package_2;
+package learning.examples;
 
-import static package_1.Class2.method1;
+import static learning.package_1.Class2.method1;
 
 public class Test4 {
     public static void main(String[] args) {

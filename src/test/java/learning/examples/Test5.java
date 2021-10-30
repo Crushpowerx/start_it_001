@@ -1,4 +1,4 @@
-package package_2;
+package learning.examples;
 
 public class Test5 {
     public static void main(String[] args) {

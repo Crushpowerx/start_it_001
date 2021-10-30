@@ -1,4 +1,4 @@
-package unit;
+package learning.unit;
 
 import calc.Calculator;
 import org.testng.Assert;
