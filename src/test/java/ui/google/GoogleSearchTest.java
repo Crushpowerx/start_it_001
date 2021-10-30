@@ -15,6 +15,7 @@ public class GoogleSearchTest extends AbstractBaseTest {
         open(googleSearchUrl);
         googleSearchPage.fillInputSearch(textForGoogleSearch);
         googleSearchPage.clickButtonSearch();
+        googleSearchResultPage.countSearchResults();
     }
 
 }
