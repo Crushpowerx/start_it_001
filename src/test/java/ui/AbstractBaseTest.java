@@ -2,6 +2,7 @@ package ui;
 
 import config.Config;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import pages.google.actions.GoogleSearchPageActions;
 import pages.google.actions.GoogleSearchResultPageActions;
 
@@ -11,7 +12,8 @@ public abstract class AbstractBaseTest {
     public GoogleSearchResultPageActions googleSearchResultPage = new GoogleSearchResultPageActions();
 
     @BeforeClass
-    public void setUp() {
-        config.setUpConfig();
+    @Parameters({"projectId", "country"})
+    public void setUp(String projectId, String country) {
+        config.setUpConfig(projectId, country);
     }
 }

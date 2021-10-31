@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite">
+    <listeners>
+        <listener class-name="listener.CustomListener"/>
+    </listeners>
+    <parameter name="projectId" value="1"/>
+    <parameter name="country" value="DE"/>
+    <test name="Google">
+        <packages>
+            <package name="ui.google"/>
+        </packages>
+    </test>
+</suite>

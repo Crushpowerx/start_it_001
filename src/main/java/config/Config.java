@@ -6,10 +6,13 @@ import io.qameta.allure.Step;
 public class Config {
 
     @Step
-    public void setUpConfig() {
+    public void setUpConfig(String projectId, String country) {
+        System.out.println("projectId: " + projectId);
+        System.out.println("country: " + country);
         Configuration.timeout = 20000;
         Configuration.pageLoadTimeout = 20000;
         Configuration.downloadsFolder = "target/build/downloads";
         Configuration.reportsFolder = "target/screenshots";
+        Configuration.browserSize = "1920x1080";
     }
 }
