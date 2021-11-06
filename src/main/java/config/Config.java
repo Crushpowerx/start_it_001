@@ -9,7 +9,6 @@ public class Config {
     public void setUpConfig(String projectId, String country) {
         System.out.println("projectId: " + projectId);
         System.out.println("country: " + country);
-        Configuration.timeout = 20000;
         Configuration.pageLoadTimeout = 20000;
         Configuration.downloadsFolder = "target/build/downloads";
         Configuration.reportsFolder = "target/screenshots";
