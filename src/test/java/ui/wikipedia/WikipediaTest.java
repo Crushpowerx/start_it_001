@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import ui.AbstractBaseTest;
 
 import static com.codeborne.selenide.Selenide.open;
+import static helper.CommonSteps.checkUrl;
 
 public class WikipediaTest extends AbstractBaseTest {
     private final String url = "https://www.wikipedia.org/";
@@ -24,7 +25,8 @@ public class WikipediaTest extends AbstractBaseTest {
 
     @Test(dataProvider = "languageCodes")
     public void checkLanguages(String languageCode) {
-
+        wikipediaMainPage.pressButtonWithLanguage(languageCode);
+        checkUrl("https://" + languageCode.toLowerCase() + ".wikipedia.org/wiki/", 5);
     }
 
 }
