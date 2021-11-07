@@ -7,7 +7,7 @@ import java.io.IOException;
 import static helper.ExcelHelper.*;
 
 public class ExcelExample {
-    private final String excelPath = "src/test/resources/users.xls";
+    private final String excelPath = "src/test/resources/users/users.xlsx";
     private final String userName = "AutotestUser";
     private final String userPassword = "Autotest777.test";
 

@@ -3,14 +3,9 @@ package helper;
 import io.qameta.allure.Step;
 import logger.CustomLogger;
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class ExcelHelper {
@@ -18,7 +13,7 @@ public class ExcelHelper {
     public static ArrayList<Object> parseExcel(String excelPath) throws IOException {
         ArrayList<Object> allData = new ArrayList<>();
         try (FileInputStream inputStream = new FileInputStream(excelPath)) {
-            try (Workbook workbook = new HSSFWorkbook(inputStream)) {
+            try (Workbook workbook = WorkbookFactory.create(inputStream)) {
                 Sheet sheet = workbook.getSheetAt(0);
                 DataFormatter dataFormatter = new DataFormatter();
                 for (Row row : sheet) {
@@ -36,9 +31,9 @@ public class ExcelHelper {
 
     @Step
     public static void prepareExcelFile(String excelPath, String sheetName, String... headers) throws IOException {
-        try (HSSFWorkbook workbook = new HSSFWorkbook()) {
-            HSSFSheet sheet = workbook.createSheet(sheetName);
-            HSSFRow rowHead = sheet.createRow((short) 0);
+        try (Workbook workbook = WorkbookFactory.create(new File(excelPath).createNewFile())) {
+            Sheet sheet = workbook.createSheet(sheetName);
+            Row rowHead = sheet.createRow((short) 0);
             for (int i = 0; i < headers.length; i++) {
                 rowHead.createCell(i).setCellValue(headers[i]);
             }
