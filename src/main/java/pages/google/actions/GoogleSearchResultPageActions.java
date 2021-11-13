@@ -42,7 +42,7 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
                 CustomLogger.logger.info(text + " - text present in title with index " + i);
                 break;
             }
-            Assert.assertTrue(testPassed, "Text not found");
         }
+        Assert.assertTrue(testPassed, "Text not found");
     }
 }
