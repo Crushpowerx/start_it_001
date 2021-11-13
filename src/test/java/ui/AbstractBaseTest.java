@@ -24,9 +24,13 @@ public abstract class AbstractBaseTest {
     public MyAccountActions myAccount = new MyAccountActions();
 
     @BeforeClass
-    @Parameters({"projectId", "country"})
-    public void setUp(@Optional("2") String projectId, @Optional("UA") String country) {
-        config.setUpConfig(projectId, country, true);
+    @Parameters({"projectId", "browser", "browserVersion"})
+    public void setUp(
+            @Optional("2") String projectId,
+            @Optional("Chrome") String browser,
+            @Optional("95") String browserVersion
+    ) {
+        config.setUpConfig(projectId, browser, browserVersion, true);
         globalCountryCode = getCountryCodeByIp();
     }
 }
