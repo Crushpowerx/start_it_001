@@ -11,6 +11,9 @@ import pages.it_platforma.actions.MainPageActions;
 import pages.it_platforma.actions.MyAccountActions;
 import pages.wikipedia.actions.WikipediaMainPageActions;
 
+import static global.Global.globalCountryCode;
+import static helper.CommonSteps.getCountryCodeByIp;
+
 public abstract class AbstractBaseTest {
     private final RunnerConfig config = new RunnerConfig();
     public GoogleSearchPageActions googleSearchPage = new GoogleSearchPageActions();
@@ -24,5 +27,6 @@ public abstract class AbstractBaseTest {
     @Parameters({"projectId", "country"})
     public void setUp(@Optional("2") String projectId, @Optional("UA") String country) {
         config.setUpConfig(projectId, country, true);
+        globalCountryCode = getCountryCodeByIp();
     }
 }
