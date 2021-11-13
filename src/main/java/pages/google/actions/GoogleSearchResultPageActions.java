@@ -1,6 +1,7 @@
 package pages.google.actions;
 
 import io.qameta.allure.Step;
+import logger.CustomLogger;
 import org.testng.Assert;
 import pages.google.locators.GoogleSearchResultPageLocators;
 
@@ -15,6 +16,7 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
     @Step
     public void countSearchResults() {
         amountOfResults = $$(byXpath(resultTitle)).size();
+        CustomLogger.logger.info(amountOfResults);
     }
 
     @Step
@@ -22,6 +24,7 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
         for (int i = 1; i <= amountOfResults; i++) {
             if ($(byXpath(resultTitle + "[" + i + "]")).getText().equals(text)) {
                 testPassed = true;
+                CustomLogger.logger.info(text + " - text present in title with index " + i);
                 break;
             }
         }

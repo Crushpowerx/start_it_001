@@ -6,6 +6,6 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class GoogleSearchPageLocators {
-    protected final SelenideElement inputSearch = $(byXpath("//input[@title='Поиск']"));
-    protected final String buttonSearch = "(//input[@value='Поиск в Google'])";
+    protected final SelenideElement inputSearch = $(byXpath("//input[@name='q']"));
+    protected final String buttonSearch = "(//input[@name='btnK'])";
 }

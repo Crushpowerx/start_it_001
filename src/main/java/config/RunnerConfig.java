@@ -1,7 +1,10 @@
 package config;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Step;
+import io.qameta.allure.selenide.AllureSelenide;
+import logger.CustomLogger;
 
 public class RunnerConfig {
 
@@ -20,5 +23,7 @@ public class RunnerConfig {
             Configuration.browserCapabilities.setCapability("enableVNC", false);
             Configuration.browserCapabilities.setCapability("enableVideo", false);
         }
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+        CustomLogger.logger.info("ok");
     }
 }
