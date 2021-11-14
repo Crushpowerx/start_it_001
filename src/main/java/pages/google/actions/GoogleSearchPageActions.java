@@ -31,4 +31,12 @@ public class GoogleSearchPageActions extends GoogleSearchPageLocators {
         }
         CustomLogger.logger.info("ok");
     }
+
+    @Step
+    public void clickButtonAcceptCookies() {
+        if (buttonAcceptCookies.isDisplayed()) {
+            buttonAcceptCookies.click();
+        }
+
+    }
 }
