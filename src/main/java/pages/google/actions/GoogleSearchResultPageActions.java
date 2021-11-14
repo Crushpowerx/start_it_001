@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static global.Global.globalCountryCode;
+import static helper.CommonSteps.getAndAttachScreenshot;
 
 public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocators {
     private int amountOfResults = 0;
@@ -45,6 +46,7 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
                 break;
             }
         }
+        getAndAttachScreenshot();
         Assert.assertTrue(testPassed, "Text not found");
     }
 }
