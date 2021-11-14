@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static global.Global.globalCountryCode;
-import static helper.CommonSteps.getCountryCodeByIp;
 
 public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocators {
     private int amountOfResults = 0;
