@@ -5,16 +5,9 @@
         <listener class-name="listener.RetryListener"/>
     </listeners>
     <parameter name="projectId" value="1"/>
-    <test name="Google Search. Chrome 95">
-        <parameter name="browser" value="Chrome"/>
-        <parameter name="browserVersion" value="95"/>
-        <packages>
-            <package name="ui.google"/>
-        </packages>
-    </test>
-    <test name="Google Search. Chrome 94">
-        <parameter name="browser" value="Chrome"/>
-        <parameter name="browserVersion" value="94"/>
+    <test name="Google Search">
+        <parameter name="browser" value="${Browser}"/>
+        <parameter name="browserVersion" value="${BrowserVersion}"/>
         <packages>
             <package name="ui.google"/>
         </packages>
