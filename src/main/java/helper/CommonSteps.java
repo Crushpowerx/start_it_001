@@ -20,10 +20,30 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class CommonSteps {
     private static final SelenideElement bodyOfPageWithIP = $(byXpath("//body"));
+    private static final SelenideElement fieldCountryValue = $(byXpath("//tr[@id='/country']" +
+            "/td[@class='treeValueCell stringCell']/span"));
+    private static final String url = "https://ipinfo.io/json";
 
     @Step
-    public static String getCountryCodeByIp() {
-        open("https://ipinfo.io/json");
+    public static String getCountryCodeByIpFirefox() {
+        open(url);
+        sleep(1000);
+        return fieldCountryValue.getText().replace("\"", "");
+    }
+
+    @Step
+    public static String getCountryCodeByIp(String browser) {
+        if (browser.equalsIgnoreCase("Chrome")) {
+            return getCountryCodeByIpChrome();
+        } else if (browser.equalsIgnoreCase("Firefox")) {
+            return getCountryCodeByIpFirefox();
+        }
+        return null;
+    }
+
+    @Step
+    public static String getCountryCodeByIpChrome() {
+        open(url);
         sleep(1000);
         String response = bodyOfPageWithIP.getText();
         JSONParser jsonParser = new JSONParser();
@@ -39,7 +59,7 @@ public class CommonSteps {
         return null;
     }
 
-    @Step
+   /* @Step
     public static void checkGeoLocationInBrowser(String country) {
         String countryCode = "";
         for (int i = 0; i < 20; i++) {
@@ -65,7 +85,7 @@ public class CommonSteps {
                 CustomLogger.logger.info(bodyOfPageWithIP.getText());
             }
         }
-    }
+    }*/
 
     @Step
     public static void checkUrl(String mustContains, int timeOutSec) {
