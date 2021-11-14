@@ -30,7 +30,7 @@ public abstract class AbstractBaseTest {
             @Optional("Firefox") String browser,
             @Optional("94") String browserVersion
     ) {
-        config.setUpConfig(projectId, browser, browserVersion, false);
+        config.setUpConfig(projectId, browser, browserVersion, true);
         globalCountryCode = getCountryCodeByIp(browser);
     }
 }
