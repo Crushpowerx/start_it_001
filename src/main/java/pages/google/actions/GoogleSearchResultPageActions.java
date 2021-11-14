@@ -32,6 +32,9 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
             case "RU":
                 resultTitle = resultTitleDiv;
                 break;
+            case "PL":
+                resultTitle = resultTitleH3;
+                break;
             default:
                 Assert.fail("Country code " + globalCountryCode + " not found!");
         }
