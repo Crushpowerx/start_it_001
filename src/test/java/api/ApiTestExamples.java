@@ -5,11 +5,11 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class Test1 {
-    private final String url = "https://ipinfo.io/json";
+public class ApiTestExamples {
 
     @Test
-    public void checkCountry() {
+    public void checkCountryAndPostal() {
+        String url = "https://ipinfo.io/json";
         given()
                 .when()
                 .get(url)
@@ -21,4 +21,6 @@ public class Test1 {
                 .log()
                 .all();
     }
+
+
 }

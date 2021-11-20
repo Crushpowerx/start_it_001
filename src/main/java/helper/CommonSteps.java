@@ -1,16 +1,10 @@
 package helper;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
-import logger.CustomLogger;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriverException;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selectors.byXpath;
@@ -43,19 +37,14 @@ public class CommonSteps {
 
     @Step
     public static String getCountryCodeByIpChrome() {
-        open(url);
-        sleep(1000);
-        String response = bodyOfPageWithIP.getText();
-        JSONParser jsonParser = new JSONParser();
-        try {
-            JSONObject responseAsJsonObject = (JSONObject) jsonParser.parse(response);
-            String countryCode = responseAsJsonObject.get("country").toString();
-            CustomLogger.logger.info(countryCode);
-            return countryCode;
-        } catch (ParseException e) {
-            e.printStackTrace();
-            Assert.fail(e.getMessage());
-        }
+//        open(url);
+//        sleep(1000);
+//        String response = bodyOfPageWithIP.getText();
+//        JSONParser jsonParser = new JSONParser();
+//            JSONObject responseAsJsonObject = (JSONObject) jsonParser.parse(response);
+//            String countryCode = responseAsJsonObject.get("country").toString();
+//            CustomLogger.logger.info(countryCode);
+//            return countryCode;
         return null;
     }
 
