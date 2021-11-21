@@ -26,11 +26,6 @@ public class GoogleSheetParseTest extends AbstractBaseTest {
             Object[] objects = list.toArray();
             arrayList.add(objects);
         }
-        for (Object[] objects : arrayList) {
-            for (Object o : objects) {
-                System.out.println(o);
-            }
-        }
         return arrayList.iterator();
     }
 
@@ -42,8 +37,6 @@ public class GoogleSheetParseTest extends AbstractBaseTest {
 
     @Test(dataProvider = "testData")
     public void checkGoogleSearchResults(String googleSearchText, String googleSearchResultText) {
-        System.out.println(googleSearchText);
-        System.out.println(googleSearchResultText);
         googleSearchPage.fillInputSearch(googleSearchText);
         googleSearchResultPage.countSearchResults();
         googleSearchResultPage.checkEachResultForText(googleSearchResultText);

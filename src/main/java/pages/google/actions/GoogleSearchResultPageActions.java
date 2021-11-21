@@ -15,7 +15,6 @@ import static helper.CommonSteps.getAndAttachScreenshot;
 
 public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocators {
     private int amountOfResults = 0;
-    private boolean testPassed = false;
 
     @Step
     public void countSearchResults() {
@@ -25,6 +24,7 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
 
     @Step
     public void checkEachResultForText(String text) {
+        boolean testPassed = false;
         String resultTitle = "";
         switch (Objects.requireNonNull(globalCountryCode)) {
             case "UA":
@@ -40,11 +40,11 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
         for (int i = 1; i <= amountOfResults; i++) {
             if ($(byXpath(resultTitle + "[" + i + "]")).getText().equals(text)) {
                 testPassed = true;
-                CustomLogger.logger.info(text + " - text present in title with index " + i);
+                CustomLogger.logger.info("'" + text + "' - text present in title with index " + i);
                 break;
             }
         }
         getAndAttachScreenshot();
-        Assert.assertTrue(testPassed, "Text not found");
+        Assert.assertTrue(testPassed, "Text '" + text + "' not found");
     }
 }
