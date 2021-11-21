@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class GoogleSheetParseTest extends AbstractBaseTest {
     private final String googleSearchUrl = "https://www.google.com/";
     private final String sheetId = "1MdJVmsI1BAQUllLVX8lu4g4uPjbgrFOUN8AcccWvp3U";
-    private final String range = "A2:B10";
+    private final String range = "Sheet1!A2:B10";
 
     @DataProvider
     public Iterator<Object[]> testData() {
