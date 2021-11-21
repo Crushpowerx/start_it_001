@@ -6,14 +6,15 @@ import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import logger.CustomLogger;
 
+import static global.Global.globalModeDebug;
+
 public class RunnerConfig {
 
     @Step
     public void setUpConfig(
             String projectId,
             String browser,
-            String browserVersion,
-            boolean useSelenoid
+            String browserVersion
     ) {
         System.out.println("projectId: " + projectId);
         Configuration.pageLoadTimeout = 20000;
@@ -22,7 +23,7 @@ public class RunnerConfig {
         Configuration.browserSize = "1920x1080";
         Configuration.browser = browser;
         Configuration.browserVersion = browserVersion;
-        if (useSelenoid) {
+        if (!globalModeDebug) {
             Configuration.remote = "http://localhost:4444/wd/hub";
             Configuration.browserCapabilities.setCapability("enableVNC", false);
             Configuration.browserCapabilities.setCapability("enableVideo", false);

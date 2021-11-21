@@ -2,30 +2,50 @@ package ui.google_sheet;
 
 import helper.GoogleSheetParser;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ui.AbstractBaseTest;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class GoogleSheetParseTest extends AbstractBaseTest {
     private final String googleSearchUrl = "https://www.google.com/";
-    private final String textForGoogleSearch = "";
-    private final String textForGoogleSearchResult = "";
-    private final String sheetId = "";
-    private final String range = "";
+    private final String sheetId = "1MdJVmsI1BAQUllLVX8lu4g4uPjbgrFOUN8AcccWvp3U";
+    private final String range = "A2:B10";
+
+    @DataProvider
+    public Iterator<Object[]> testData() {
+        ArrayList<Object[]> arrayList = new ArrayList<>();
+        List<List<Object>> lists = GoogleSheetParser.getGoogleSheetValue(sheetId, range);
+        for (List<Object> list : Objects.requireNonNull(lists)) {
+            Object[] objects = list.toArray();
+            arrayList.add(objects);
+        }
+        for (Object[] objects : arrayList) {
+            for (Object o : objects) {
+                System.out.println(o);
+            }
+        }
+        return arrayList.iterator();
+    }
 
     @BeforeMethod
     public void openUrl() {
-        GoogleSheetParser.getGoogleSheetValue(sheetId, range);
         open(googleSearchUrl);
         googleSearchPage.clickButtonAcceptCookies();
     }
 
-    @Test
-    public void checkGoogleSearchResults() {
-        googleSearchPage.fillInputSearch(textForGoogleSearch);
-        googleSearchPage.clickButtonSearch();
+    @Test(dataProvider = "testData")
+    public void checkGoogleSearchResults(String googleSearchText, String googleSearchResultText) {
+        System.out.println(googleSearchText);
+        System.out.println(googleSearchResultText);
+        googleSearchPage.fillInputSearch(googleSearchText);
         googleSearchResultPage.countSearchResults();
-        googleSearchResultPage.checkEachResultForText(textForGoogleSearchResult);
+        googleSearchResultPage.checkEachResultForText(googleSearchResultText);
     }
 }

@@ -1,11 +1,17 @@
 package helper;
 
 import com.codeborne.selenide.SelenideElement;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+import logger.CustomLogger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
+
+import java.util.Objects;
 
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
@@ -37,15 +43,19 @@ public class CommonSteps {
 
     @Step
     public static String getCountryCodeByIpChrome() {
-//        open(url);
-//        sleep(1000);
-//        String response = bodyOfPageWithIP.getText();
-//        JSONParser jsonParser = new JSONParser();
-//            JSONObject responseAsJsonObject = (JSONObject) jsonParser.parse(response);
-//            String countryCode = responseAsJsonObject.get("country").toString();
-//            CustomLogger.logger.info(countryCode);
-//            return countryCode;
-        return null;
+        ObjectMapper objectMapper = new ObjectMapper();
+        open(url);
+        sleep(1000);
+        String response = bodyOfPageWithIP.getText();
+        JsonNode responseAsJsonObject = null;
+        try {
+            responseAsJsonObject = objectMapper.readTree(response);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        String countryCode = Objects.requireNonNull(responseAsJsonObject).get("country").textValue();
+        CustomLogger.logger.info(countryCode);
+        return countryCode;
     }
 
    /* @Step

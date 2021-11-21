@@ -28,13 +28,11 @@ public class GoogleSearchResultPageActions extends GoogleSearchResultPageLocator
         String resultTitle = "";
         switch (Objects.requireNonNull(globalCountryCode)) {
             case "UA":
+            case "PL":
                 resultTitle = resultTitleH3;
                 break;
             case "RU":
                 resultTitle = resultTitleDiv;
-                break;
-            case "PL":
-                resultTitle = resultTitleH3;
                 break;
             default:
                 Assert.fail("Country code " + globalCountryCode + " not found!");

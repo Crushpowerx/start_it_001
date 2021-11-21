@@ -20,7 +20,6 @@ public class GoogleSearchTest extends AbstractBaseTest {
     @Test
     public void checkGoogleSearchResults() {
         googleSearchPage.fillInputSearch(textForGoogleSearch);
-        googleSearchPage.clickButtonSearch();
         googleSearchResultPage.countSearchResults();
         googleSearchResultPage.checkEachResultForText(textForGoogleSearchResult);
     }
