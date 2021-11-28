@@ -1,10 +1,9 @@
 package learning.excel;
 
+import helper.ExcelHelper;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-
-import static helper.ExcelHelper.*;
 
 public class ExcelExample {
     private final String excelPath = "src/test/resources/users/users.xlsx";
@@ -13,13 +12,13 @@ public class ExcelExample {
 
     @Test
     public void writeToExcelExample() throws IOException {
-        prepareExcelFile(excelPath, "Sheet", "User name", "User password");
-        writeToExistingExcelFile(excelPath, new Object[]{userName, userPassword});
+        ExcelHelper.prepareExcelFile(excelPath, "Sheet", "User name", "User password");
+        ExcelHelper.writeToExistingExcelFile(excelPath, new Object[]{userName, userPassword});
     }
 
     @Test
     public void readFromExcelExample() throws IOException {
-        for (Object object : parseExcel(excelPath)) {
+        for (Object object : ExcelHelper.parseExcel(excelPath)) {
             System.out.println(object);
         }
     }
